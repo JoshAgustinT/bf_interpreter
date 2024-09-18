@@ -1,50 +1,29 @@
-.SILENT: test
+a5:
+	g++ bf.cpp -g
+	./a.out nestedloops.b -p
 test:
 	g++ -O3 bf.cpp
-	echo "Running hello.b"
-	echo
-	./a.out benches/hello.b
-	echo
-	echo "Running deadcodetest.b"
-	echo
-	./a.out benches/deadcodetest.b
-	echo
-	echo "Running mandel.b"
-	echo
-	./a.out benches/mandel.b
-	echo
-	echo "Running bench.b"
-	./a.out benches/bench.b
-	echo
-	echo "Running loopremove.b"
-	./a.out benches/loopremove.b
-	echo
-	echo "Running twinkle.b"
-	./a.out benches/twinkle.b
-	echo
-	echo "Running hanoi.b"
-	./a.out benches/hanoi.b
-	echo
-	echo "Running bottles.b"
-	./a.out benches/bottles.b
-	echo
-	echo "Running long.b"
-	./a.out benches/long.b
-	echo
-	echo "Running serptri.b"
-	./a.out benches/serptri.b
-	echo
-	echo "All tests completed."
-	echo
+	time ./a.out benches/hello.b -p
+	time ./a.out benches/deadcodetest.b -p
+	time ./a.out benches/mandel.b -p
+	time ./a.out benches/bench.b -p
+	time ./a.out benches/loopremove.b -p
+	time ./a.out benches/twinkle.b -p
+	time ./a.out benches/hanoi.b -p
+	time ./a.out benches/bottles.b -p
+	time ./a.out benches/long.b -p
+	time ./a.out benches/serptri.b -p
+	@echo "All tests completed."
+	@echo
 hanoi:
-	g++ -O3 bf.cpp
-	./a.out benches/hanoi.b
+	g++ -O3 bf.cpp 
+	./a.out benches/hanoi.b -p 
 hanoi-d:
 	g++ -O3 bf.cpp
 	./a.out benches/hanoi.b -d
 hello:
-	g++ -O3 bf.cpp
-	./a.out benches/hello.b
+	g++ -O3 bf.cpp 
+	./a.out benches/hello.b -p
 hello-d:
 	g++ -O3 bf.cpp
 	./a.out benches/hello.b -d
